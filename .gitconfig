@@ -21,4 +21,5 @@
     dm = diff master
     am = commit --amend
     recent = log origin/master@{\"8 hours ago\"}..origin/master --
+    alias = config --get-regexp alias
 
