@@ -1,0 +1,24 @@
+[include]
+    # personal details in here
+    path = ~/.gitconfig-local
+
+[color]
+	diff = auto
+
+[push]
+	default = simple
+
+[rerere]
+    enabled = true
+
+[alias]
+    co = checkout
+    br = branch
+    ci = commit
+    st = status
+    rbi = rebase --interactive origin/master
+    cm = checkout master
+    dm = diff master
+    am = commit --amend
+    recent = log origin/master@{\"8 hours ago\"}..origin/master --
+
