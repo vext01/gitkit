@@ -11,9 +11,6 @@ LOCAL_GITCONFIG_DEST = os.path.join(HOME, ".gitconfig-local")
 TEMPLATE = """[user]
 	name = %s
 	email = %s
-
-[github]
-	user = %s
 """
 
 
@@ -37,10 +34,9 @@ def main():
 
     name = prompt("Full name")
     email = prompt("Email")
-    gh_user = prompt("Github account")
 
     with open(LOCAL_GITCONFIG_DEST, "w") as fh:
-        fh.write(TEMPLATE % (name, email, gh_user))
+        fh.write(TEMPLATE % (name, email))
     os.symlink(GITCONFIG_SRC, GITCONFIG_DEST)
 
 main()
