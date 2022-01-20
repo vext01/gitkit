@@ -9,9 +9,12 @@ GITCONFIG_DEST = os.path.join(HOME, ".gitconfig")
 LOCAL_GITCONFIG_DEST = os.path.join(HOME, ".gitconfig-local")
 
 TEMPLATE = """[user]
-	name = %s
-	email = %s
-	signingKey = %s
+    name = %s
+    email = %s
+    signingKey = %s
+
+[github]
+    user = %s
 """
 
 
@@ -40,5 +43,6 @@ def main():
     with open(LOCAL_GITCONFIG_DEST, "w") as fh:
         fh.write(TEMPLATE % (name, email, pub_key))
     os.symlink(GITCONFIG_SRC, GITCONFIG_DEST)
+
 
 main()
