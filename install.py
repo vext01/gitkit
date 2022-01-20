@@ -1,4 +1,4 @@
-#!/usr/bin/env python2.7
+#!/usr/bin/env python3
 import os
 import sys
 
@@ -11,13 +11,14 @@ LOCAL_GITCONFIG_DEST = os.path.join(HOME, ".gitconfig-local")
 TEMPLATE = """[user]
 	name = %s
 	email = %s
+	signingKey = %s
 """
 
 
 def prompt(msg):
     sys.stdout.write(msg + ": ")
     sys.stdout.flush()
-    return raw_input()
+    return input()
 
 
 def bail(msg):
@@ -34,9 +35,10 @@ def main():
 
     name = prompt("Full name")
     email = prompt("Email")
+    pub_key = prompt("SSH public key")
 
     with open(LOCAL_GITCONFIG_DEST, "w") as fh:
-        fh.write(TEMPLATE % (name, email))
+        fh.write(TEMPLATE % (name, email, pub_key))
     os.symlink(GITCONFIG_SRC, GITCONFIG_DEST)
 
 main()

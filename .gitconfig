@@ -23,4 +23,11 @@
     recent = log origin/master@{\"8 hours ago\"}..origin/master --
     alias = config --get-regexp alias
     p = pull
+    sign-rebase = rebase --exec 'git commit --amend --no-edit -n -S'
 
+[gpg]
+    format = ssh
+[gpg "ssh"]
+	allowedSignersFile =  ~/.config/git/allowed_signers
+[log]
+	showSignature = true
