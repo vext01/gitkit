@@ -12,9 +12,6 @@ TEMPLATE = """[user]
     name = %s
     email = %s
     signingKey = %s
-
-[github]
-    user = %s
 """
 
 
