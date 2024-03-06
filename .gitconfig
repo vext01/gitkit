@@ -1,3 +1,6 @@
+[core]
+    pager = "delta --color-only"
+
 [include]
     # personal details in here
     path = ~/.gitconfig-local
@@ -12,18 +15,28 @@
     enabled = true
 
 [alias]
-    co = checkout
+    co = checkout[core]
+    pager = "delta"
     br = branch
-    ci = commit
+    cc = commit
     st = status
     rbi = rebase --interactive origin/master
     cm = checkout master
     dm = diff master
     am = commit --amend
-    recent = log origin/master@{\"8 hours ago\"}..origin/master --
-    alias = config --get-regexp alias
     p = pull
-    sign-rebase = rebase --exec 'git commit --amend --no-edit -n -S'
+    sr = rebase --exec 'git commit --amend --no-edit -n -S'
+
+[delta]
+    light = false
+    theme = gruvbox-dark
+    keep-plus-minus-markers = true
+    file-style = "magenta normal"
+    zero-style = "normal normal"
+    plus-style = "green #26342c"
+    plus-emph-style = "green #2b4134"
+    minus-style = "red #342626"
+    minus-emph-style = "#d95a5a #562222"
 
 [gpg]
     format = ssh
@@ -31,3 +44,6 @@
 	allowedSignersFile =  ~/.config/git/allowed_signers
 [log]
 	showSignature = true
+[init]
+	defaultBranch = master
+
